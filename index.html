@@ -1,8 +1,10 @@
 <html>
     <head>
         <script>
+            const UP_KEY = 38;
             const DOWN_KEY = 40;
-            const RIGHT_KEY=39;
+            const LEFT_KEY = 37;
+            const RIGHT_KEY = 39;
             let x = 10;
             let y = 10;
             let key;
@@ -10,26 +12,19 @@
             const intervalId = setInterval(draw, 10);
 
             document.onkeydown = function(event) {
-                switch (event.keyCode) {
-                    case 37:
-                        alert('Left key');
-                        break;
-                    case 38:
-                        alert('Up key');
-                        break;
-                    case RIGHT_KEY:
-                        key = RIGHT_KEY;
-                        break;
-                    case DOWN_KEY:
-                        key = DOWN_KEY;
-                        break;
-                }
+                key = event.keyCode;
             };
 
             function draw() {               
                 switch (key) {
+                    case UP_KEY:
+                        y -= 1;
+                        break;
                     case DOWN_KEY:
                         y += 1;
+                        break;
+                    case LEFT_KEY:
+                        x -= 1;
                         break;
                     case RIGHT_KEY:
                         x += 1;
@@ -40,8 +35,8 @@
                 const ctx = canvas.getContext("2d");
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-                ctx.strokeStyle = "blue";
-                ctx.strokeRect(x, y, 10, 10);
+                ctx.fillStyle = "green";
+                ctx.fillRect(x, y, 10, 10);
             }
         </script>
     </head>
