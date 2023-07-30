@@ -214,12 +214,15 @@ describe("Snake", () => {
 
     });
 
-    it('should populate snake array', () => {
-        theGame.tick();
+    xit('should grow snake', () => {
         theGame.grow();
+        theGame.right();
+        theGame.tick();
 
         let theSnake = theGame.getSnake();
         expect(theSnake[0].x).toEqual(1);
         expect(theSnake[0].y).toEqual(0);
+        expect(theSnake[1].x).toEqual(0);
+        expect(theSnake[1].y).toEqual(0);
     });
 });

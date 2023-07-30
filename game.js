@@ -5,6 +5,8 @@ function Game() {
     let xDirection = 1;
     let yDirection = 0;
 
+    let snake = [{x: getX(), y: getY()}];
+
     function tick() {
         x += xDirection;
         if (x > 3) {
@@ -20,6 +22,8 @@ function Game() {
             y = 3;
         }
 
+        snake[0].x = x;
+        snake[0].y = y;
     }
 
     function down() {
@@ -55,7 +59,7 @@ function Game() {
     }
 
     function getSnake() {
-        return [{x: getX(), y: getY()}]
+        return snake;
     }
     return { tick, down, up, left, right, getX, getY, grow, getSnake };
 };
