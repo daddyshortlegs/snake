@@ -4,8 +4,8 @@ describe("The snake", () => {
 
     it('should contain some elements', () => {
         let snake = Snake(2);
-        snake.addElement(5, 4);
-        snake.addElement(6, 1);
+        snake.updatePosition(5, 4);
+        snake.updatePosition(6, 1);
 
         let elements = snake.getElements();
 
@@ -17,8 +17,8 @@ describe("The snake", () => {
 
     it('should contain other elements', () => {
         let snake = Snake(2);
-        snake.addElement(2, 1);
-        snake.addElement(8, 1);
+        snake.updatePosition(2, 1);
+        snake.updatePosition(8, 1);
 
         let elements = snake.getElements();
 
@@ -30,9 +30,9 @@ describe("The snake", () => {
 
     it('should move elements', () => {
         let snake = Snake(2);
-        snake.addElement(2, 1);
-        snake.addElement(8, 2);
-        snake.addElement(7, 3);
+        snake.updatePosition(2, 1);
+        snake.updatePosition(8, 2);
+        snake.updatePosition(7, 3);
 
         let elements = snake.getElements();
 
@@ -44,10 +44,10 @@ describe("The snake", () => {
 
     it('should move some more elements', () => {
         let snake = Snake(2);
-        snake.addElement(2, 1);
-        snake.addElement(8, 2);
-        snake.addElement(7, 3);
-        snake.addElement(4, 4);
+        snake.updatePosition(2, 1);
+        snake.updatePosition(8, 2);
+        snake.updatePosition(7, 3);
+        snake.updatePosition(4, 4);
 
         let elements = snake.getElements();
 
@@ -60,9 +60,9 @@ describe("The snake", () => {
 
     it('should create snake with a size of 3', () => {
         let snake = Snake(3);
-        snake.addElement(2, 1);
-        snake.addElement(8, 2);
-        snake.addElement(3, 3);
+        snake.updatePosition(2, 1);
+        snake.updatePosition(8, 2);
+        snake.updatePosition(3, 3);
 
         let elements = snake.getElements();
 
@@ -75,10 +75,10 @@ describe("The snake", () => {
 
     it('should shuffle array with snake of length 3', () => {
         let snake = Snake(3);
-        snake.addElement(2, 1);
-        snake.addElement(8, 2);
-        snake.addElement(3, 3);
-        snake.addElement(7, 4);
+        snake.updatePosition(2, 1);
+        snake.updatePosition(8, 2);
+        snake.updatePosition(3, 3);
+        snake.updatePosition(7, 4);
 
         let elements = snake.getElements();
 
@@ -91,7 +91,7 @@ describe("The snake", () => {
 
     it('should return one element', () => {
         let snake = Snake(1);
-        snake.addElement(2, 1);
+        snake.updatePosition(2, 1);
 
         let elements = snake.getElements();
 
@@ -103,8 +103,8 @@ describe("The snake", () => {
 
     it('should move one element', () => {
         let snake = Snake(1);
-        snake.addElement(2, 1);
-        snake.addElement(7, 8);
+        snake.updatePosition(2, 1);
+        snake.updatePosition(7, 8);
 
         let elements = snake.getElements();
 
@@ -115,9 +115,9 @@ describe("The snake", () => {
 
     it('should move two elementw', () => {
         let snake = Snake(1);
-        snake.addElement(2, 1);
-        snake.addElement(7, 8);
-        snake.addElement(1, 1);
+        snake.updatePosition(2, 1);
+        snake.updatePosition(7, 8);
+        snake.updatePosition(1, 1);
 
         let elements = snake.getElements();
 
