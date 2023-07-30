@@ -157,4 +157,22 @@ describe("The snake", () => {
         ]);
     });
 
+    it('should grow 3 times and shuffle', () => {
+        let snake = Snake(1);
+        snake.updatePosition(2, 1);
+        snake.grow();
+
+        snake.updatePosition(3, 4);
+        snake.grow();
+        snake.updatePosition(7, 7);
+
+        let elements = snake.getElements();
+
+        expect(elements).toEqual([
+            {x: 2, y: 1},
+            {x: 3, y: 4},
+            {x: 7, y: 7},
+        ]);
+    });
+
 });
