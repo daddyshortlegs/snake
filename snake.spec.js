@@ -1,4 +1,4 @@
-const Snake = require("./snakey").Snake;
+const Snake = require("./snake").Snake;
 
 describe("The snake", () => {
 
