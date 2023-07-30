@@ -113,7 +113,7 @@ describe("The snake", () => {
         ]);
     });
 
-    it('should move two elementw', () => {
+    it('should move two elements', () => {
         let snake = Snake(1);
         snake.updatePosition(2, 1);
         snake.updatePosition(7, 8);
@@ -123,6 +123,37 @@ describe("The snake", () => {
 
         expect(elements).toEqual([
             {x: 1, y: 1},
+        ]);
+    });
+
+    it('should grow', () => {
+        let snake = Snake(1);
+        snake.updatePosition(2, 1);
+        snake.grow();
+
+        snake.updatePosition(3, 4);
+
+        let elements = snake.getElements();
+
+        expect(elements).toEqual([
+            {x: 2, y: 1},
+            {x: 3, y: 4},
+        ]);
+    });
+
+    it('should grow and shuffle', () => {
+        let snake = Snake(1);
+        snake.updatePosition(2, 1);
+        snake.grow();
+
+        snake.updatePosition(3, 4);
+        snake.updatePosition(7, 7);
+
+        let elements = snake.getElements();
+
+        expect(elements).toEqual([
+            {x: 3, y: 4},
+            {x: 7, y: 7},
         ]);
     });
 
