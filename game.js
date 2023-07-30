@@ -55,7 +55,7 @@ function Game() {
     }
 
     function grow() {
-
+        snake.push({x: getX(), y: getY()});
     }
 
     function getSnake() {
