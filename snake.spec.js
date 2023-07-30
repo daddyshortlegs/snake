@@ -88,4 +88,42 @@ describe("The snake", () => {
             {x: 7, y: 4},
         ]);
     });
+
+    it('should return one element', () => {
+        let snake = Snake(1);
+        snake.addElement(2, 1);
+
+        let elements = snake.getElements();
+
+        expect(elements).toEqual([
+            {x: 2, y: 1},
+        ]);
+
+    });
+
+    it('should move one element', () => {
+        let snake = Snake(1);
+        snake.addElement(2, 1);
+        snake.addElement(7, 8);
+
+        let elements = snake.getElements();
+
+        expect(elements).toEqual([
+            {x: 7, y: 8},
+        ]);
+    });
+
+    it('should move two elementw', () => {
+        let snake = Snake(1);
+        snake.addElement(2, 1);
+        snake.addElement(7, 8);
+        snake.addElement(1, 1);
+
+        let elements = snake.getElements();
+
+        expect(elements).toEqual([
+            {x: 1, y: 1},
+        ]);
+    });
+
 });
