@@ -50,7 +50,14 @@ function Game() {
         return y;
     }
 
-    return { tick, down, up, left, right, getX, getY };
+    function grow() {
+
+    }
+
+    function getSnake() {
+        return [{x: getX(), y: getY()}]
+    }
+    return { tick, down, up, left, right, getX, getY, grow, getSnake };
 };
 
 module.exports = { Game };
