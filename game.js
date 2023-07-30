@@ -1,3 +1,5 @@
+const Snake = require("./snake").Snake;
+
 function Game() {
     let x = 0;
     let y = 0;
@@ -5,7 +7,8 @@ function Game() {
     let xDirection = 1;
     let yDirection = 0;
 
-    let snake = [{x: getX(), y: getY()}];
+    let snake = Snake(1);
+    snake.updatePosition(x, y);
 
     function tick() {
         x += xDirection;
@@ -22,8 +25,7 @@ function Game() {
             y = 3;
         }
 
-        snake[0].x = x;
-        snake[0].y = y;
+        snake.updatePosition(x, y);
     }
 
     function down() {
@@ -55,13 +57,18 @@ function Game() {
     }
 
     function grow() {
-        snake.push({x: getX(), y: getY()});
+        snake.grow();
     }
 
     function getSnake() {
         return snake;
     }
-    return { tick, down, up, left, right, getX, getY, grow, getSnake };
+
+    function getSnakeBody() {
+        return snake.getElements();
+    }
+
+    return { tick, down, up, left, right, getX, getY, grow, getSnake, getSnakeBody };
 };
 
 module.exports = { Game };

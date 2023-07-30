@@ -17,7 +17,15 @@ function Snake(size) {
         size += 1;
     }
 
-    return {updatePosition, getElements, grow};
+    function getX() {
+        return elements[0].x;
+    }
+
+    function getY() {
+        return elements[0].y;
+    }
+
+    return {updatePosition, getElements, grow, getX, getY};
 }
 
 module.exports = { Snake };

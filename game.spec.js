@@ -11,17 +11,16 @@ describe("Snake", () => {
 
     it("should put place a dot", () => {
         let theSnake = theGame.getSnake();
-        expect(theSnake[0].x).toEqual(0);
-        expect(theSnake[0].y).toEqual(0);
-        expect(theSnake.length).toEqual(1);
+        expect(theSnake.getX()).toEqual(0);
+        expect(theSnake.getY()).toEqual(0);
     });
 
     it('should move right', () => {
         theGame.tick();
 
         let theSnake = theGame.getSnake();
-        expect(theSnake[0].x).toEqual(1);
-        expect(theSnake[0].y).toEqual(0);
+        expect(theSnake.getX()).toEqual(1);
+        expect(theSnake.getY()).toEqual(0);
     });
 
     it('should move right twice', () => {
@@ -29,8 +28,8 @@ describe("Snake", () => {
         theGame.tick();
 
         let theSnake = theGame.getSnake();
-        expect(theSnake[0].x).toEqual(2);
-        expect(theSnake[0].y).toEqual(0);
+        expect(theSnake.getX()).toEqual(2);
+        expect(theSnake.getY()).toEqual(0);
     });
 
     it('should move right thrice', () => {
@@ -39,8 +38,8 @@ describe("Snake", () => {
         theGame.tick();
 
         let theSnake = theGame.getSnake();
-        expect(theSnake[0].x).toEqual(3);
-        expect(theSnake[0].y).toEqual(0);
+        expect(theSnake.getX()).toEqual(3);
+        expect(theSnake.getY()).toEqual(0);
     });
 
     it('should wrap back to start when past end of world', () => {
@@ -50,8 +49,8 @@ describe("Snake", () => {
         theGame.tick();
 
         let theSnake = theGame.getSnake();
-        expect(theSnake[0].x).toEqual(0);
-        expect(theSnake[0].y).toEqual(0);
+        expect(theSnake.getX()).toEqual(0);
+        expect(theSnake.getY()).toEqual(0);
     });
 
     it('should move down', () => {
@@ -59,8 +58,8 @@ describe("Snake", () => {
         theGame.tick();
 
         let theSnake = theGame.getSnake();
-        expect(theSnake[0].x).toEqual(0);
-        expect(theSnake[0].y).toEqual(1);
+        expect(theSnake.getX()).toEqual(0);
+        expect(theSnake.getY()).toEqual(1);
     });
 
     it('should move down twice', () => {
@@ -69,8 +68,8 @@ describe("Snake", () => {
         theGame.tick();
 
         let theSnake = theGame.getSnake();
-        expect(theSnake[0].x).toEqual(0);
-        expect(theSnake[0].y).toEqual(2);
+        expect(theSnake.getX()).toEqual(0);
+        expect(theSnake.getY()).toEqual(2);
     });
 
     it('should move down thrice', () => {
@@ -80,8 +79,8 @@ describe("Snake", () => {
         theGame.tick();
 
         let theSnake = theGame.getSnake();
-        expect(theSnake[0].x).toEqual(0);
-        expect(theSnake[0].y).toEqual(3);
+        expect(theSnake.getX()).toEqual(0);
+        expect(theSnake.getY()).toEqual(3);
     });
 
     it('should move down and wrap back to top', () => {
@@ -92,8 +91,8 @@ describe("Snake", () => {
         theGame.tick();
 
         let theSnake = theGame.getSnake();
-        expect(theSnake[0].x).toEqual(0);
-        expect(theSnake[0].y).toEqual(0);
+        expect(theSnake.getX()).toEqual(0);
+        expect(theSnake.getY()).toEqual(0);
     });
 
     it('should move left', () => {
@@ -101,8 +100,8 @@ describe("Snake", () => {
         theGame.tick();
 
         let theSnake = theGame.getSnake();
-        expect(theSnake[0].x).toEqual(3);
-        expect(theSnake[0].y).toEqual(0);
+        expect(theSnake.getX()).toEqual(3);
+        expect(theSnake.getY()).toEqual(0);
     });
 
     it('should move left twice', () => {
@@ -111,8 +110,8 @@ describe("Snake", () => {
         theGame.tick();
 
         let theSnake = theGame.getSnake();
-        expect(theSnake[0].x).toEqual(2);
-        expect(theSnake[0].y).toEqual(0);
+        expect(theSnake.getX()).toEqual(2);
+        expect(theSnake.getY()).toEqual(0);
     });
 
     it('should move left thrice', () => {
@@ -122,8 +121,8 @@ describe("Snake", () => {
         theGame.tick();
 
         let theSnake = theGame.getSnake();
-        expect(theSnake[0].x).toEqual(1);
-        expect(theSnake[0].y).toEqual(0);
+        expect(theSnake.getX()).toEqual(1);
+        expect(theSnake.getY()).toEqual(0);
     });
 
     it('should move up', () => {
@@ -131,8 +130,8 @@ describe("Snake", () => {
         theGame.tick();
 
         let theSnake = theGame.getSnake();
-        expect(theSnake[0].x).toEqual(0);
-        expect(theSnake[0].y).toEqual(3);
+        expect(theSnake.getX()).toEqual(0);
+        expect(theSnake.getY()).toEqual(3);
     });
 
     it('should move up', () => {
@@ -141,8 +140,8 @@ describe("Snake", () => {
         theGame.tick();
 
         let theSnake = theGame.getSnake();
-        expect(theSnake[0].x).toEqual(0);
-        expect(theSnake[0].y).toEqual(3);
+        expect(theSnake.getX()).toEqual(0);
+        expect(theSnake.getY()).toEqual(3);
     });
 
     it('should move around a bit', () => {
@@ -153,8 +152,8 @@ describe("Snake", () => {
         theGame.tick();
 
         let theSnake = theGame.getSnake();
-        expect(theSnake[0].x).toEqual(0);
-        expect(theSnake[0].y).toEqual(1);
+        expect(theSnake.getX()).toEqual(0);
+        expect(theSnake.getY()).toEqual(1);
     });
 
     it('should move right', () => {
@@ -162,8 +161,8 @@ describe("Snake", () => {
         theGame.tick();
 
         let theSnake = theGame.getSnake();
-        expect(theSnake[0].x).toEqual(1);
-        expect(theSnake[0].y).toEqual(0);
+        expect(theSnake.getX()).toEqual(1);
+        expect(theSnake.getY()).toEqual(0);
     });
 
     it('should move right and down', () => {
@@ -173,8 +172,8 @@ describe("Snake", () => {
         theGame.tick();
 
         let theSnake = theGame.getSnake();
-        expect(theSnake[0].x).toEqual(1);
-        expect(theSnake[0].y).toEqual(1);
+        expect(theSnake.getX()).toEqual(1);
+        expect(theSnake.getY()).toEqual(1);
     });
 
     it('should move right and down more', () => {
@@ -185,8 +184,8 @@ describe("Snake", () => {
         theGame.tick();
 
         let theSnake = theGame.getSnake();
-        expect(theSnake[0].x).toEqual(1);
-        expect(theSnake[0].y).toEqual(2);
+        expect(theSnake.getX()).toEqual(1);
+        expect(theSnake.getY()).toEqual(2);
     });
 
     it('should move right and down more then left', () => {
@@ -199,8 +198,8 @@ describe("Snake", () => {
         theGame.tick();
 
         let theSnake = theGame.getSnake();
-        expect(theSnake[0].x).toEqual(0);
-        expect(theSnake[0].y).toEqual(2);
+        expect(theSnake.getX()).toEqual(0);
+        expect(theSnake.getY()).toEqual(2);
     });
 
     it('should move down the right', () => {
@@ -210,8 +209,8 @@ describe("Snake", () => {
         theGame.tick();
 
         let theSnake = theGame.getSnake();
-        expect(theSnake[0].x).toEqual(1);
-        expect(theSnake[0].y).toEqual(1);
+        expect(theSnake.getX()).toEqual(1);
+        expect(theSnake.getY()).toEqual(1);
     });
 
     it('should grow snake', () => {
@@ -219,11 +218,11 @@ describe("Snake", () => {
         theGame.right();
         theGame.tick();
 
-        let theSnake = theGame.getSnake();
+        let theSnake = theGame.getSnakeBody();
         expect(theSnake.length).toEqual(2);
-        expect(theSnake[0].x).toEqual(1);
+        expect(theSnake[0].x).toEqual(0);
         expect(theSnake[0].y).toEqual(0);
-        expect(theSnake[1].x).toEqual(0);
+        expect(theSnake[1].x).toEqual(1);
         expect(theSnake[1].y).toEqual(0);
     });
 });
