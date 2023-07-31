@@ -1,7 +1,6 @@
+import { Game } from "./game.js";
 
-const Game = require("./game").Game;
-
-describe("Snake", () => {
+describe("Snake game", () => {
 
     let theGame;
 

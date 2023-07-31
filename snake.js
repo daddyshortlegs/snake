@@ -1,4 +1,4 @@
-function Snake(size) {
+export function Snake(size) {
 
     let elements = [];
 
@@ -27,5 +27,3 @@ function Snake(size) {
 
     return {updatePosition, getElements, grow, getX, getY};
 }
-
-module.exports = { Snake };

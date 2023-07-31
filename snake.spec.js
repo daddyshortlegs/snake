@@ -1,4 +1,4 @@
-const Snake = require("./snake").Snake;
+import { Snake } from "./snake.js";
 
 describe("The snake", () => {
 

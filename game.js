@@ -1,6 +1,6 @@
-const Snake = require("./snake").Snake;
+import { Snake } from "./snake.js";
 
-function Game() {
+export function Game(maxX = 3, maxY = 3) {
     let x = 0;
     let y = 0;
 
@@ -12,17 +12,17 @@ function Game() {
 
     function tick() {
         x += xDirection;
-        if (x > 3) {
+        if (x > maxX) {
             x = 0;
         } else if (x < 0) {
-            x = 3;
+            x = maxX;
         }
 
         y += yDirection;
-        if (y > 3) {
+        if (y > maxY) {
             y = 0;
         } else if (y < 0) {
-            y = 3;
+            y = maxY;
         }
 
         snake.updatePosition(x, y);
@@ -69,6 +69,4 @@ function Game() {
     }
 
     return { tick, down, up, left, right, getX, getY, grow, getSnake, getSnakeBody };
-};
-
-module.exports = { Game };
+}
