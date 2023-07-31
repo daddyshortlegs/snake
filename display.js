@@ -43,7 +43,7 @@ function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     let rat = game.getRat();
-    drawDot(ctx, rat.ratX, rat.ratY, "brown");
+    drawDot(ctx, rat.ratX, rat.ratY, "rgb(132,77,14)");
 
     snakeBody.forEach(element => {
         drawDot(ctx, element.x, element.y);

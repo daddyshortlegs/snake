@@ -11,7 +11,7 @@ export function Game(maxX = 3, maxY = 3) {
     let ratY;
 
     let snake = Snake(1);
-    randomRat();
+    // randomRat();
 
     snake.updatePosition(x, y);
 
