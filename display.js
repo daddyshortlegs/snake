@@ -46,7 +46,6 @@ function draw() {
         drawDot(ctx, element.x, element.y);
     });
 
-
     game.tick();
 }
 
