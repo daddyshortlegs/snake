@@ -42,6 +42,9 @@ function draw() {
     const ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+    let rat = game.getRat();
+    drawDot(ctx, rat.ratX, rat.ratY, "brown");
+
     snakeBody.forEach(element => {
         drawDot(ctx, element.x, element.y);
     });
@@ -49,8 +52,8 @@ function draw() {
     game.tick();
 }
 
-function drawDot(ctx, x, y) {
-    ctx.fillStyle = "green";
+function drawDot(ctx, x, y, fillStyle = "green") {
+    ctx.fillStyle = fillStyle;
     ctx.fillRect(x * 10, y * 10, 10, 10);
 }
 
