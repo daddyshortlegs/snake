@@ -7,6 +7,9 @@ export function Game(maxX = 3, maxY = 3) {
     let xDirection = 1;
     let yDirection = 0;
 
+    let ratX;
+    let ratY;
+
     let snake = Snake(1);
     snake.updatePosition(x, y);
 
@@ -26,6 +29,10 @@ export function Game(maxX = 3, maxY = 3) {
         }
 
         snake.updatePosition(x, y);
+
+        if (x === ratX && y === ratY) {
+            grow();
+        }
     }
 
     function down() {
@@ -68,5 +75,11 @@ export function Game(maxX = 3, maxY = 3) {
         return snake.getElements();
     }
 
-    return { tick, down, up, left, right, getX, getY, grow, getSnake, getSnakeBody };
+    function placeRat(x, y) {
+        ratX = x;
+        ratY = y;
+    }
+
+    return { tick, down, up, left, right, getX, getY, grow, getSnake, getSnakeBody, placeRat };
 }
+

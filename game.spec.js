@@ -1,4 +1,5 @@
 import { Game } from "./game.js";
+import expect from "expect";
 
 describe("Snake game", () => {
 
@@ -223,5 +224,27 @@ describe("Snake game", () => {
         expect(theSnake[0].y).toEqual(0);
         expect(theSnake[1].x).toEqual(1);
         expect(theSnake[1].y).toEqual(0);
+    });
+
+    it('should place rat', () => {
+        theGame.placeRat(1, 1);
+        theGame.right();
+        theGame.tick();
+        theGame.tick();
+        theGame.tick();
+
+        let theSnake = theGame.getSnakeBody();
+        expect(theSnake.length).toEqual(1);
+    });
+
+    it('should eat rat and grow', () => {
+        theGame.placeRat(1, 0);
+        theGame.right();
+        theGame.tick();
+        theGame.tick();
+        theGame.tick();
+
+        let theSnake = theGame.getSnakeBody();
+        expect(theSnake.length).toEqual(2);
     });
 });

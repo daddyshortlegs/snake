@@ -2,6 +2,10 @@
 
 Just for fun.
 
+To run the tests:
+
+`npm test`
+
 To start:
 
 `./node_modules/http-server/bin/http-server`
@@ -9,7 +13,4 @@ To start:
 Then navigate to http://localhost:8080
 
 
-To run the tests:
-
-`npm test`
 
