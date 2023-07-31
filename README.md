@@ -8,9 +8,6 @@ To run the tests:
 
 To start:
 
-`./node_modules/http-server/bin/http-server`
+`npm start`
 
 Then navigate to http://localhost:8080
-
-
-

@@ -4,7 +4,8 @@
   "description": "A Snake Game",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "./node_modules/http-server/bin/http-server"
   },
   "author": "",
   "license": "ISC",
