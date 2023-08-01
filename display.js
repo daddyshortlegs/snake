@@ -75,6 +75,5 @@ function displayGameOver() {
     ctx.font = "60px Comic Sans MS";
     ctx.fillStyle = "red";
     ctx.textAlign = "center";
-    ctx.fillText("Game Over Snakey...", canvas.width / 2, canvas.height / 2);
+    ctx.fillText("Game Over, Rats!", canvas.width / 2, canvas.height / 2);
 }
-
