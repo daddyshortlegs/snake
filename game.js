@@ -95,6 +95,10 @@ export function Game(maxX = 3, maxY = 3) {
         return Math.floor(Math.random() * max);
     }
 
-    return { tick, down, up, left, right, getX, getY, grow, getSnake, getSnakeBody, placeRat, getRat };
+    function isGameOver() {
+        return snake.hasCollided();
+    }
+
+    return { tick, down, up, left, right, getX, getY, grow, getSnake, getSnakeBody, placeRat, getRat, isGameOver };
 }
 

@@ -247,4 +247,31 @@ describe("Snake game", () => {
         let theSnake = theGame.getSnakeBody();
         expect(theSnake.length).toEqual(2);
     });
+
+    it('should check for game over and be false', () => {
+        theGame.right();
+        theGame.tick();
+        theGame.tick();
+
+        const result = theGame.isGameOver();
+        expect(result).toEqual(false);
+    });
+
+    it('should be game over when snake collides into itself', () => {
+        theGame.grow();
+        theGame.grow();
+        theGame.grow();
+        theGame.grow();
+        theGame.right();
+        theGame.tick();
+        theGame.down();
+        theGame.tick();
+        theGame.left();
+        theGame.tick();
+        theGame.up();
+        theGame.tick();
+
+        const result = theGame.isGameOver();
+        expect(result).toEqual(true);
+    });
 });

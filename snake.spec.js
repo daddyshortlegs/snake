@@ -181,7 +181,7 @@ describe("The snake", () => {
         snake.updatePosition(1, 0);
         snake.updatePosition(2, 0);
 
-        let result = snake.collision();
+        let result = snake.hasCollided();
 
         expect(result).toEqual(false);
     });
@@ -192,7 +192,7 @@ describe("The snake", () => {
         snake.updatePosition(1, 0);
         snake.updatePosition(1, 0);
 
-        let result = snake.collision();
+        let result = snake.hasCollided();
 
         expect(result).toEqual(true);
     });
@@ -204,7 +204,7 @@ describe("The snake", () => {
         snake.updatePosition(2, 0);
         snake.updatePosition(2, 0);
 
-        let result = snake.collision();
+        let result = snake.hasCollided();
 
         expect(result).toEqual(true);
     });
@@ -216,7 +216,7 @@ describe("The snake", () => {
         snake.updatePosition(0, 2);
         snake.updatePosition(0, 3);
 
-        let result = snake.collision();
+        let result = snake.hasCollided();
 
         expect(result).toEqual(false);
     });
@@ -228,7 +228,7 @@ describe("The snake", () => {
         snake.updatePosition(0, 2);
         snake.updatePosition(0, 2);
 
-        let result = snake.collision();
+        let result = snake.hasCollided();
 
         expect(result).toEqual(true);
     });
@@ -241,7 +241,7 @@ describe("The snake", () => {
         snake.updatePosition(0, 1);
         snake.updatePosition(0, 1);
 
-        let result = snake.collision();
+        let result = snake.hasCollided();
 
         expect(result).toEqual(true);
     });

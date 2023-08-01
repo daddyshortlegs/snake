@@ -4,7 +4,7 @@ export function Snake(size, starting = []) {
     let collided = false;
 
     function updatePosition(x, y) {
-        collided = hasCollided(x, y);
+        collided = checkCollision(x, y);
         elements.push({x: x, y: y});
 
         if (elements.length > size) {
@@ -12,7 +12,7 @@ export function Snake(size, starting = []) {
         }
     }
 
-    function hasCollided(x, y) {
+    function checkCollision(x, y) {
         return !!elements.find(element => element.x === x && element.y === y);
     }
 
@@ -32,9 +32,9 @@ export function Snake(size, starting = []) {
         return elements[0].y;
     }
 
-    function collision() {
+    function hasCollided() {
         return collided;
     }
 
-    return {updatePosition, getElements, grow, getX, getY, collision};
+    return {updatePosition, getElements, grow, getX, getY, hasCollided};
 }
