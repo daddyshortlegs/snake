@@ -6,7 +6,7 @@ describe("Snake game", () => {
     let theGame;
 
     beforeEach(() => {
-        theGame = Game();
+        theGame = Game(3, 3, false);
     });
 
     it("should put place a dot", () => {

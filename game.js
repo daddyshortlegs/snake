@@ -1,6 +1,6 @@
 import {Snake} from "./snake.js";
 
-export function Game(maxX = 3, maxY = 3) {
+export function Game(maxX = 3, maxY = 3, init = true) {
     let x = 0;
     let y = 0;
 
@@ -11,7 +11,9 @@ export function Game(maxX = 3, maxY = 3) {
     let ratY;
 
     let snake = Snake(1);
-    randomRat();
+    if (init === true) {
+        randomRat();
+    }
 
     snake.updatePosition(x, y);
 
