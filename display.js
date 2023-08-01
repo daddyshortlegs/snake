@@ -11,7 +11,7 @@ let game = Game(99, 59);
 
 const intervalId = setInterval(draw, 100);
 
-document.onkeydown = function(event) {
+document.onkeydown = function (event) {
     key = event.keyCode;
 };
 
@@ -42,6 +42,7 @@ function draw() {
     game.tick();
     if (game.isGameOver()) {
         clearInterval(intervalId);
+        displayGameOver();
     }
 }
 
@@ -66,5 +67,14 @@ function drawSnake(ctx) {
 function drawDot(ctx, x, y, fillStyle = "green") {
     ctx.fillStyle = fillStyle;
     ctx.fillRect(x * 10, y * 10, 10, 10);
+}
+
+function displayGameOver() {
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+    ctx.font = "60px Comic Sans MS";
+    ctx.fillStyle = "red";
+    ctx.textAlign = "center";
+    ctx.fillText("Game Over Snakey...", canvas.width / 2, canvas.height / 2);
 }
 
