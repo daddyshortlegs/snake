@@ -233,4 +233,17 @@ describe("The snake", () => {
         expect(result).toEqual(true);
     });
 
+    it('should collide on both axis', () => {
+        let snake = Snake(4);
+        snake.updatePosition(0, 0);
+        snake.updatePosition(1, 0);
+        snake.updatePosition(1, 1);
+        snake.updatePosition(0, 1);
+        snake.updatePosition(0, 1);
+
+        let result = snake.collision();
+
+        expect(result).toEqual(true);
+    });
+
 });

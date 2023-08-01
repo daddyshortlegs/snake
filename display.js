@@ -1,4 +1,4 @@
-import { Game } from "./game.js";
+import {Game} from "./game.js";
 
 const UP_KEY = 38;
 const DOWN_KEY = 40;
@@ -9,7 +9,7 @@ let key;
 
 let game = Game(99, 59);
 
-const intervalId = setInterval(draw, 20);
+const intervalId = setInterval(draw, 100);
 
 document.onkeydown = function(event) {
     key = event.keyCode;
@@ -35,21 +35,29 @@ function draw() {
     }
 
     key = null;
+    const ctx = clearCanvas();
+    drawRat(ctx);
+    drawSnake(ctx);
 
-    let snakeBody = game.getSnakeBody();
+    game.tick();
+}
 
+function clearCanvas() {
     const canvas = document.getElementById("myCanvas");
     const ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    return ctx;
+}
 
-    let rat = game.getRat();
+function drawRat(ctx) {
+    const rat = game.getRat();
     drawDot(ctx, rat.ratX, rat.ratY, "rgb(132,77,14)");
+}
 
-    snakeBody.forEach(element => {
+function drawSnake(ctx) {
+    game.getSnakeBody().forEach(element => {
         drawDot(ctx, element.x, element.y);
     });
-
-    game.tick();
 }
 
 function drawDot(ctx, x, y, fillStyle = "green") {
