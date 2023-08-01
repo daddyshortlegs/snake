@@ -40,6 +40,9 @@ function draw() {
     drawSnake(ctx);
 
     game.tick();
+    if (game.isGameOver()) {
+        clearInterval(intervalId);
+    }
 }
 
 function clearCanvas() {
