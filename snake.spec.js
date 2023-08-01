@@ -175,4 +175,62 @@ describe("The snake", () => {
         ]);
     });
 
+    it('should not collide', () => {
+        let snake = Snake(3);
+        snake.updatePosition(0, 0);
+        snake.updatePosition(1, 0);
+        snake.updatePosition(2, 0);
+
+        let result = snake.collision();
+
+        expect(result).toEqual(false);
+    });
+
+    it('should collide', () => {
+        let snake = Snake(3);
+        snake.updatePosition(0, 0);
+        snake.updatePosition(1, 0);
+        snake.updatePosition(1, 0);
+
+        let result = snake.collision();
+
+        expect(result).toEqual(true);
+    });
+
+    it('should collide on X-axis', () => {
+        let snake = Snake(4);
+        snake.updatePosition(0, 0);
+        snake.updatePosition(1, 0);
+        snake.updatePosition(2, 0);
+        snake.updatePosition(2, 0);
+
+        let result = snake.collision();
+
+        expect(result).toEqual(true);
+    });
+
+    it('should not collide on Y-axis', () => {
+        let snake = Snake(4);
+        snake.updatePosition(0, 0);
+        snake.updatePosition(0, 1);
+        snake.updatePosition(0, 2);
+        snake.updatePosition(0, 3);
+
+        let result = snake.collision();
+
+        expect(result).toEqual(false);
+    });
+
+    it('should collide on Y-axis', () => {
+        let snake = Snake(4);
+        snake.updatePosition(0, 0);
+        snake.updatePosition(0, 1);
+        snake.updatePosition(0, 2);
+        snake.updatePosition(0, 2);
+
+        let result = snake.collision();
+
+        expect(result).toEqual(true);
+    });
+
 });
