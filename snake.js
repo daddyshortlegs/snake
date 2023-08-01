@@ -4,19 +4,16 @@ export function Snake(size, starting = []) {
     let collided = false;
 
     function updatePosition(x, y) {
-        let found = elements.find(element => element.x === x && element.y === y);
-        if (found) {
-            collided = true;
-        } else {
-            collided = false;
-        }
-
+        collided = hasCollided(x, y);
         elements.push({x: x, y: y});
-
 
         if (elements.length > size) {
             elements = elements.slice(1);
         }
+    }
+
+    function hasCollided(x, y) {
+        return !!elements.find(element => element.x === x && element.y === y);
     }
 
     function getElements() {
