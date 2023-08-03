@@ -34,10 +34,14 @@ export function Game(maxX = 3, maxY = 3, init = true) {
 
         snake.updatePosition(x, y);
 
-        if (x === ratX && y === ratY) {
+        if (eatenRat()) {
             grow();
             randomRat();
         }
+    }
+
+    function eatenRat() {
+        return x === ratX && y === ratY;
     }
 
     function down() {
@@ -101,6 +105,6 @@ export function Game(maxX = 3, maxY = 3, init = true) {
         return snake.hasCollided();
     }
 
-    return { tick, down, up, left, right, getX, getY, grow, getSnake, getSnakeBody, placeRat, getRat, isGameOver };
+    return { tick, down, up, left, right, getX, getY, grow, getSnake, getSnakeBody, placeRat, getRat, isGameOver, eatenRat };
 }
 

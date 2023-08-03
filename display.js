@@ -9,6 +9,11 @@ let key;
 
 let game = Game(99, 59);
 
+let ratSound = new Audio("resources/rat.mp3");
+ratSound.loop = false;
+let snakeSound = new Audio("resources/snake.mp3");
+snakeSound.loop = false;
+snakeSound.play();
 const intervalId = setInterval(draw, 100);
 
 document.onkeydown = function (event) {
@@ -40,9 +45,14 @@ function draw() {
     drawSnake(ctx);
 
     game.tick();
+    if (game.eatenRat()) {
+        ratSound.play();
+    }
+
     if (game.isGameOver()) {
         clearInterval(intervalId);
         displayGameOver();
+        ratSound.play();
     }
 }
 
