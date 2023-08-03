@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A Snake Game",
   "main": "index.js",
+  "private": true,
   "scripts": {
     "test": "jest",
     "start": "./node_modules/http-server/bin/http-server"
@@ -15,8 +16,11 @@
   "devDependencies": {
     "@babel/core": "^7.22.9",
     "@babel/preset-env": "^7.22.9",
-    "jest": "^29.6.2",
     "babel-jest": "^29.6.2",
-    "expect": "^29.6.2"
+    "expect": "^29.6.2",
+    "jest": "^29.6.2",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "wepack-cli": "^0.0.1-security"
   }
 }
