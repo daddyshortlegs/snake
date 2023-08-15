@@ -7,7 +7,7 @@
   "scripts": {
     "build": "webpack",
     "test": "jest",
-    "start": "./node_modules/http-server/bin/http-server"
+    "start": "webpack serve --open"
   },
   "author": "",
   "license": "ISC",
@@ -19,9 +19,11 @@
     "@babel/preset-env": "^7.22.9",
     "babel-jest": "^29.6.2",
     "expect": "^29.6.2",
+    "html-webpack-plugin": "^5.5.3",
     "jest": "^29.6.2",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1",
     "wepack-cli": "^0.0.1-security"
   }
 }
