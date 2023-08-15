@@ -5,6 +5,7 @@
   "main": "index.js",
   "private": true,
   "scripts": {
+    "build": "webpack",
     "test": "jest",
     "start": "./node_modules/http-server/bin/http-server"
   },

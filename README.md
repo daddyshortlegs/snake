@@ -15,6 +15,10 @@ To play this revolutionary game, use the cursor keys.
 
 ## To run locally
 
+To build:
+
+`npm run build`
+
 To run the tests:
 
 `npm test`
