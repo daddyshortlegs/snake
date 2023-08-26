@@ -234,7 +234,7 @@ describe("Snake game", () => {
         theGame.tick();
 
         let theSnake = theGame.getSnakeBody();
-        expect(theSnake.length).toEqual(1);
+        expect(theSnake.length).toEqual(2);
     });
 
     it('should eat rat and grow', () => {
@@ -245,7 +245,7 @@ describe("Snake game", () => {
         theGame.tick();
 
         let theSnake = theGame.getSnakeBody();
-        expect(theSnake.length).toEqual(2);
+        expect(theSnake.length).toEqual(3);
     });
 
     it('should check for game over and be false', () => {

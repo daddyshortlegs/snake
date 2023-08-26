@@ -25,11 +25,11 @@ export function Snake(size, starting = []) {
     }
 
     function getX() {
-        return elements[0].x;
+        return elements[elements.length - 1].x;
     }
 
     function getY() {
-        return elements[0].y;
+        return elements[elements.length - 1].y;
     }
 
     function hasCollided() {

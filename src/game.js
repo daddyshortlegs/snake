@@ -10,7 +10,7 @@ export function Game(maxX = 3, maxY = 3, init = true) {
     let ratX;
     let ratY;
 
-    let snake = Snake(1);
+    let snake = Snake(2);
     if (init === true) {
         randomRat();
     }
