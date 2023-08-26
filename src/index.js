@@ -13,7 +13,7 @@ let ratSound = new Audio("resources/rat.mp3");
 ratSound.loop = false;
 let snakeSound = new Audio("resources/snake.mp3");
 snakeSound.loop = false;
-snakeSound.play();
+// snakeSound.play();
 const intervalId = setInterval(draw, 100);
 
 document.onkeydown = function (event) {
@@ -46,13 +46,13 @@ function draw() {
 
     game.tick();
     if (game.eatenRat()) {
-        ratSound.play();
+        // ratSound.play();
     }
 
     if (game.isGameOver()) {
         clearInterval(intervalId);
         displayGameOver();
-        ratSound.play();
+        // ratSound.play();
     }
 }
 
@@ -85,5 +85,7 @@ function displayGameOver() {
     ctx.font = "60px Comic Sans MS";
     ctx.fillStyle = "red";
     ctx.textAlign = "center";
-    ctx.fillText("Game Over, Rats!", canvas.width / 2, canvas.height / 2);
+    ctx.fillText("Game Over, rats!", canvas.width / 2, canvas.height / 2);
 }
+
+draw();
