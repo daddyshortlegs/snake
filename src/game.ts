@@ -1,4 +1,4 @@
-import {Snake} from "./snake.js";
+import {Snake} from "./snake";
 
 export function Game(maxX = 3, maxY = 3, init = true) {
     let x = 0;
@@ -7,8 +7,8 @@ export function Game(maxX = 3, maxY = 3, init = true) {
     let xDirection = 1;
     let yDirection = 0;
 
-    let ratX;
-    let ratY;
+    let ratX: number;
+    let ratY: number;
 
     let snake = Snake(2);
     if (init === true) {
@@ -88,7 +88,7 @@ export function Game(maxX = 3, maxY = 3, init = true) {
         placeRat(getRandomInt(maxX), getRandomInt(maxY));
     }
 
-    function placeRat(x, y) {
+    function placeRat(x: number, y: number) {
         ratX = x;
         ratY = y;
     }
@@ -97,7 +97,7 @@ export function Game(maxX = 3, maxY = 3, init = true) {
         return {ratX, ratY};
     }
 
-    function getRandomInt(max) {
+    function getRandomInt(max: number) {
         return Math.floor(Math.random() * max);
     }
 

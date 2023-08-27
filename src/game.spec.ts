@@ -1,9 +1,9 @@
-import { Game } from "./game.js";
+import { Game } from "./game";
 import expect from "expect";
 
 describe("Snake game", () => {
 
-    let theGame;
+    let theGame: any;
 
     beforeEach(() => {
         theGame = Game(3, 3, false);

@@ -1,11 +1,11 @@
-import {Game} from "./game.js";
+import {Game} from "./game";
 
 const UP_KEY = 38;
 const DOWN_KEY = 40;
 const LEFT_KEY = 37;
 const RIGHT_KEY = 39;
 const SPACE = 32;
-let key;
+let key: number;
 
 let game = Game(99, 59);
 
@@ -57,30 +57,30 @@ function draw() {
 }
 
 function clearCanvas() {
-    const canvas = document.getElementById("myCanvas");
-    const ctx = canvas.getContext("2d");
+    const canvas = <HTMLCanvasElement>document.getElementById("myCanvas");
+    const ctx: CanvasRenderingContext2D = canvas.getContext("2d");
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     return ctx;
 }
 
-function drawRat(ctx) {
+function drawRat(ctx: CanvasRenderingContext2D) {
     const rat = game.getRat();
     drawDot(ctx, rat.ratX, rat.ratY, "rgb(132,77,14)");
 }
 
-function drawSnake(ctx) {
-    game.getSnakeBody().forEach(element => {
+function drawSnake(ctx: CanvasRenderingContext2D) {
+    game.getSnakeBody().forEach((element: { x: number; y: number; }) => {
         drawDot(ctx, element.x, element.y);
     });
 }
 
-function drawDot(ctx, x, y, fillStyle = "green") {
+function drawDot(ctx: CanvasRenderingContext2D, x: number, y: number, fillStyle = "green") {
     ctx.fillStyle = fillStyle;
     ctx.fillRect(x * 10, y * 10, 10, 10);
 }
 
 function displayGameOver() {
-    const canvas = document.getElementById("myCanvas");
+    const canvas = <HTMLCanvasElement>document.getElementById("myCanvas");
     const ctx = canvas.getContext("2d");
     ctx.font = "60px Comic Sans MS";
     ctx.fillStyle = "red";
