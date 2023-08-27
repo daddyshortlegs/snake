@@ -1,11 +1,11 @@
 import {Snake} from "./snake";
 
 export function Game(maxX = 3, maxY = 3, init = true) {
-    let x = 0;
-    let y = 0;
+    let x: number = 0;
+    let y: number = 0;
 
-    let xDirection = 1;
-    let yDirection = 0;
+    let xDirection: number = 1;
+    let yDirection: number = 0;
 
     let ratX: number;
     let ratY: number;
@@ -40,7 +40,7 @@ export function Game(maxX = 3, maxY = 3, init = true) {
         }
     }
 
-    function eatenRat() {
+    function eatenRat(): boolean {
         return x === ratX && y === ratY;
     }
 
@@ -64,11 +64,11 @@ export function Game(maxX = 3, maxY = 3, init = true) {
         yDirection = 0;
     }
 
-    function getX() {
+    function getX(): number {
         return x;
     }
 
-    function getY() {
+    function getY(): number {
         return y;
     }
 
@@ -97,11 +97,11 @@ export function Game(maxX = 3, maxY = 3, init = true) {
         return {ratX, ratY};
     }
 
-    function getRandomInt(max: number) {
+    function getRandomInt(max: number): number {
         return Math.floor(Math.random() * max);
     }
 
-    function isGameOver() {
+    function isGameOver(): boolean {
         return snake.hasCollided();
     }
 

@@ -1,7 +1,7 @@
 export function Snake(size: number, starting: any = []) {
 
     let elements = starting;
-    let collided = false;
+    let collided: boolean = false;
 
     function updatePosition(x: number, y: number) {
         collided = checkCollision(x, y);
@@ -12,7 +12,7 @@ export function Snake(size: number, starting: any = []) {
         }
     }
 
-    function checkCollision(x: number, y: number) {
+    function checkCollision(x: number, y: number): boolean {
         return !!elements.find((element: { x: number; y: number; }) => element.x === x && element.y === y);
     }
 
@@ -24,15 +24,15 @@ export function Snake(size: number, starting: any = []) {
         size += 1;
     }
 
-    function getX() {
+    function getX(): number {
         return elements[elements.length - 1].x;
     }
 
-    function getY() {
+    function getY(): number {
         return elements[elements.length - 1].y;
     }
 
-    function hasCollided() {
+    function hasCollided(): boolean {
         return collided;
     }
 
