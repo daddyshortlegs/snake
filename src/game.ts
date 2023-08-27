@@ -6,8 +6,7 @@ interface Coordinate {
 }
 
 export function Game(maxX: number = 3, maxY: number = 3, init: boolean = true) {
-    let x: number = 0;
-    let y: number = 0;
+    let snakePosition: Coordinate = {x: 0, y: 0};
 
     let xDirection: number = 1;
     let yDirection: number = 0;
@@ -19,24 +18,24 @@ export function Game(maxX: number = 3, maxY: number = 3, init: boolean = true) {
         randomRat();
     }
 
-    snake.updatePosition(x, y);
+    snake.updatePosition(snakePosition.x, snakePosition.y);
 
     function tick() {
-        x += xDirection;
-        if (x > maxX) {
-            x = 0;
-        } else if (x < 0) {
-            x = maxX;
+        snakePosition.x += xDirection;
+        if (snakePosition.x > maxX) {
+            snakePosition.x = 0;
+        } else if (snakePosition.x < 0) {
+            snakePosition.x = maxX;
         }
 
-        y += yDirection;
-        if (y > maxY) {
-            y = 0;
-        } else if (y < 0) {
-            y = maxY;
+        snakePosition.y += yDirection;
+        if (snakePosition.y > maxY) {
+            snakePosition.y = 0;
+        } else if (snakePosition.y < 0) {
+            snakePosition.y = maxY;
         }
 
-        snake.updatePosition(x, y);
+        snake.updatePosition(snakePosition.x, snakePosition.y);
 
         if (eatenRat()) {
             grow();
@@ -47,7 +46,7 @@ export function Game(maxX: number = 3, maxY: number = 3, init: boolean = true) {
     function eatenRat(): boolean {
         const ratX = ratPosition.x;
         const ratY = ratPosition.y;
-        return x === ratX && y === ratY;
+        return snakePosition.x === ratX && snakePosition.y === ratY;
     }
 
     function down() {
@@ -71,11 +70,11 @@ export function Game(maxX: number = 3, maxY: number = 3, init: boolean = true) {
     }
 
     function getX(): number {
-        return x;
+        return snakePosition.x;
     }
 
     function getY(): number {
-        return y;
+        return snakePosition.y;
     }
 
     function grow() {
