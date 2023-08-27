@@ -227,7 +227,7 @@ describe("Snake game", () => {
     });
 
     it('should place rat', () => {
-        theGame.placeRat(1, 1);
+        theGame.placeRat({x: 1, y: 1});
         theGame.right();
         theGame.tick();
         theGame.tick();
@@ -238,7 +238,7 @@ describe("Snake game", () => {
     });
 
     it('should eat rat and grow', () => {
-        theGame.placeRat(1, 0);
+        theGame.placeRat({x: 1, y: 0});
         theGame.right();
         theGame.tick();
         theGame.tick();

@@ -1,14 +1,18 @@
 import {Snake} from "./snake";
 
-export function Game(maxX = 3, maxY = 3, init = true) {
+interface Coordinate {
+    x: number;
+    y: number;
+}
+
+export function Game(maxX: number = 3, maxY: number = 3, init: boolean = true) {
     let x: number = 0;
     let y: number = 0;
 
     let xDirection: number = 1;
     let yDirection: number = 0;
 
-    let ratX: number;
-    let ratY: number;
+    let ratPosition: Coordinate = {x: 0, y: 0};
 
     let snake = Snake(2);
     if (init === true) {
@@ -41,6 +45,8 @@ export function Game(maxX = 3, maxY = 3, init = true) {
     }
 
     function eatenRat(): boolean {
+        const ratX = ratPosition.x;
+        const ratY = ratPosition.y;
         return x === ratX && y === ratY;
     }
 
@@ -85,15 +91,19 @@ export function Game(maxX = 3, maxY = 3, init = true) {
     }
 
     function randomRat() {
-        placeRat(getRandomInt(maxX), getRandomInt(maxY));
+        placeRat({
+            x: getRandomInt(maxX),
+            y: getRandomInt(maxY)
+        });
     }
 
-    function placeRat(x: number, y: number) {
-        ratX = x;
-        ratY = y;
+    function placeRat(position: Coordinate) {
+        ratPosition = position;
     }
 
     function getRat() {
+        let ratX = ratPosition.x;
+        let ratY = ratPosition.y;
         return {ratX, ratY};
     }
 
