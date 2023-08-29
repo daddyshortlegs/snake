@@ -5,9 +5,9 @@ export function Snake(size: number, starting: any = []) {
     let elements = starting;
     let collided: boolean = false;
 
-    function updatePosition(snakePosition: Coordinate, x: number, y: number) {
-        collided = checkCollision(x, y);
-        elements.push({x: x, y: y});
+    function updatePosition(coordinate: Coordinate) {
+        collided = checkCollision(coordinate.x, coordinate.y);
+        elements.push({x: coordinate.x, y: coordinate.y});
 
         if (elements.length > size) {
             elements = elements.slice(1);
