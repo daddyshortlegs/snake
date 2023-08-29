@@ -11,7 +11,7 @@ export function Game(maxX: number = 3, maxY: number = 3, init: boolean = true) {
         randomRat();
     }
 
-    snake.updatePosition(snakePosition);
+    snake.resetPosition();
 
     function tick() {
         snakePosition.x += direction.x;

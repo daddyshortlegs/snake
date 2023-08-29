@@ -5,6 +5,10 @@ export function Snake(size: number, starting: any = []) {
     let elements = starting;
     let collided: boolean = false;
 
+    function resetPosition() {
+        updatePosition({x: 0, y: 0});
+    }
+
     function updatePosition(coordinate: Coordinate) {
         collided = checkCollision(coordinate);
         elements.push({...coordinate});
@@ -38,5 +42,5 @@ export function Snake(size: number, starting: any = []) {
         return collided;
     }
 
-    return {updatePosition, getElements, grow, getX, getY, hasCollided};
+    return {resetPosition, updatePosition, getElements, grow, getX, getY, hasCollided};
 }
