@@ -2,11 +2,9 @@ import {Snake} from "./snake";
 import { Coordinate } from "./coordinate";
 
 export function Game(maxX: number = 3, maxY: number = 3, init: boolean = true) {
-    let snakePosition: Coordinate = {x: 0, y: 0};
-    let direction: Coordinate = {x: 1, y: 0};
     let ratPosition: Coordinate = {x: 0, y: 0};
 
-    let snake = Snake(2);
+    let snake = Snake(2, [], maxX, maxY);
     if (init === true) {
         randomRat();
     }
@@ -14,21 +12,7 @@ export function Game(maxX: number = 3, maxY: number = 3, init: boolean = true) {
     snake.resetPosition();
 
     function tick() {
-        snakePosition.x += direction.x;
-        if (snakePosition.x > maxX) {
-            snakePosition.x = 0;
-        } else if (snakePosition.x < 0) {
-            snakePosition.x = maxX;
-        }
-
-        snakePosition.y += direction.y;
-        if (snakePosition.y > maxY) {
-            snakePosition.y = 0;
-        } else if (snakePosition.y < 0) {
-            snakePosition.y = maxY;
-        }
-
-        snake.updatePosition(snakePosition);
+        snake.move();
 
         if (eatenRat()) {
             grow();
@@ -39,31 +23,31 @@ export function Game(maxX: number = 3, maxY: number = 3, init: boolean = true) {
     function eatenRat(): boolean {
         const ratX = ratPosition.x;
         const ratY = ratPosition.y;
-        return snakePosition.x === ratX && snakePosition.y === ratY;
+        return snake.getX() === ratX && snake.getY() === ratY;
     }
 
     function down() {
-        direction = {x: 0, y: 1};
+        snake.changeDirection({x: 0, y: 1});
     }
 
     function up() {
-        direction = {x: 0, y: -1};
+        snake.changeDirection({x: 0, y: -1});
     }
 
     function left() {
-        direction = {x: -1, y: 0};
+        snake.changeDirection({x: -1, y: 0});
     }
 
     function right() {
-        direction = {x: 1, y: 0};
+        snake.changeDirection({x: 1, y: 0});
     }
 
     function getX(): number {
-        return snakePosition.x;
+        return snake.getX();
     }
 
     function getY(): number {
-        return snakePosition.y;
+        return snake.getY();
     }
 
     function grow() {

@@ -1,12 +1,37 @@
 import { Coordinate } from "./coordinate";
 
-export function Snake(size: number, starting: any = []) {
+export function Snake(size: number, starting: any = [], maxX: number = 3, maxY: number = 3) {
 
     let elements = starting;
     let collided: boolean = false;
+    let snakePosition: Coordinate = {x: 0, y: 0};
+    let direction: Coordinate = {x: 1, y: 0};
+
 
     function resetPosition() {
         updatePosition({x: 0, y: 0});
+    }
+
+    function move() {
+        snakePosition.x += direction.x;
+        if (snakePosition.x > maxX) {
+            snakePosition.x = 0;
+        } else if (snakePosition.x < 0) {
+            snakePosition.x = maxX;
+        }
+
+        snakePosition.y += direction.y;
+        if (snakePosition.y > maxY) {
+            snakePosition.y = 0;
+        } else if (snakePosition.y < 0) {
+            snakePosition.y = maxY;
+        }
+
+        updatePosition(snakePosition);
+    }
+
+    function changeDirection(coordinate: Coordinate) {
+        direction = {...coordinate};
     }
 
     function updatePosition(coordinate: Coordinate) {
@@ -42,5 +67,5 @@ export function Snake(size: number, starting: any = []) {
         return collided;
     }
 
-    return {resetPosition, updatePosition, getElements, grow, getX, getY, hasCollided};
+    return {resetPosition, move, changeDirection, updatePosition, getElements, grow, getX, getY, hasCollided};
 }
