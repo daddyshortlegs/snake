@@ -1,9 +1,11 @@
+import { Coordinate } from "./coordinate";
+
 export function Snake(size: number, starting: any = []) {
 
     let elements = starting;
     let collided: boolean = false;
 
-    function updatePosition(x: number, y: number) {
+    function updatePosition(snakePosition: Coordinate, x: number, y: number) {
         collided = checkCollision(x, y);
         elements.push({x: x, y: y});
 

@@ -1,9 +1,5 @@
 import {Snake} from "./snake";
-
-interface Coordinate {
-    x: number;
-    y: number;
-}
+import { Coordinate } from "./coordinate";
 
 export function Game(maxX: number = 3, maxY: number = 3, init: boolean = true) {
     let snakePosition: Coordinate = {x: 0, y: 0};
@@ -18,7 +14,7 @@ export function Game(maxX: number = 3, maxY: number = 3, init: boolean = true) {
         randomRat();
     }
 
-    snake.updatePosition(snakePosition.x, snakePosition.y);
+    snake.updatePosition(snakePosition, snakePosition.x, snakePosition.y);
 
     function tick() {
         snakePosition.x += xDirection;
@@ -35,7 +31,7 @@ export function Game(maxX: number = 3, maxY: number = 3, init: boolean = true) {
             snakePosition.y = maxY;
         }
 
-        snake.updatePosition(snakePosition.x, snakePosition.y);
+        snake.updatePosition(snakePosition, snakePosition.x, snakePosition.y);
 
         if (eatenRat()) {
             grow();
