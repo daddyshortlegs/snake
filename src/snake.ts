@@ -6,16 +6,16 @@ export function Snake(size: number, starting: any = []) {
     let collided: boolean = false;
 
     function updatePosition(coordinate: Coordinate) {
-        collided = checkCollision(coordinate.x, coordinate.y);
-        elements.push({x: coordinate.x, y: coordinate.y});
+        collided = checkCollision(coordinate);
+        elements.push({...coordinate});
 
         if (elements.length > size) {
             elements = elements.slice(1);
         }
     }
 
-    function checkCollision(x: number, y: number): boolean {
-        return !!elements.find((element: { x: number; y: number; }) => element.x === x && element.y === y);
+    function checkCollision(coordinate: Coordinate): boolean {
+        return !!elements.find((element: Coordinate) => element.x === coordinate.x && element.y === coordinate.y);
     }
 
     function getElements() {
