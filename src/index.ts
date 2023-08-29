@@ -1,10 +1,13 @@
 import {Game} from "./game";
 
-const UP_KEY = 38;
-const DOWN_KEY = 40;
-const LEFT_KEY = 37;
-const RIGHT_KEY = 39;
-const SPACE = 32;
+const Key = {
+    Up: 38,
+    Down: 40,
+    Left: 37,
+    Right: 39,
+    Space: 32
+};
+
 let key: number;
 
 let game = Game(99, 59);
@@ -22,19 +25,19 @@ document.onkeydown = function (event) {
 
 function draw() {
     switch (key) {
-        case UP_KEY:
+        case Key.Up:
             game.up();
             break;
-        case DOWN_KEY:
+        case Key.Down:
             game.down();
             break;
-        case LEFT_KEY:
+        case Key.Left:
             game.left();
             break;
-        case RIGHT_KEY:
+        case Key.Right:
             game.right();
             break;
-        case SPACE:
+        case Key.Space:
             game.grow();
             break;
     }

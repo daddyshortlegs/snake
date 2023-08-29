@@ -22,5 +22,9 @@ export function Rat(maxX: number = 3, maxY: number = 3) {
         return ratPosition;
     }
 
-    return { placeRat, placeRandomly, getRatPosition };
+    return { 
+        placeRat, 
+        placeRandomly, 
+        getRatPosition 
+    };
 }
