@@ -3,10 +3,7 @@ import { Coordinate } from "./coordinate";
 
 export function Game(maxX: number = 3, maxY: number = 3, init: boolean = true) {
     let snakePosition: Coordinate = {x: 0, y: 0};
-
-    let xDirection: number = 1;
-    let yDirection: number = 0;
-
+    let direction: Coordinate = {x: 1, y: 0};
     let ratPosition: Coordinate = {x: 0, y: 0};
 
     let snake = Snake(2);
@@ -17,14 +14,14 @@ export function Game(maxX: number = 3, maxY: number = 3, init: boolean = true) {
     snake.updatePosition(snakePosition);
 
     function tick() {
-        snakePosition.x += xDirection;
+        snakePosition.x += direction.x;
         if (snakePosition.x > maxX) {
             snakePosition.x = 0;
         } else if (snakePosition.x < 0) {
             snakePosition.x = maxX;
         }
 
-        snakePosition.y += yDirection;
+        snakePosition.y += direction.y;
         if (snakePosition.y > maxY) {
             snakePosition.y = 0;
         } else if (snakePosition.y < 0) {
@@ -46,23 +43,19 @@ export function Game(maxX: number = 3, maxY: number = 3, init: boolean = true) {
     }
 
     function down() {
-        xDirection = 0;
-        yDirection = 1;
+        direction = {x: 0, y: 1};
     }
 
     function up() {
-        xDirection = 0;
-        yDirection = -1;
+        direction = {x: 0, y: -1};
     }
 
     function left() {
-        xDirection = -1;
-        yDirection = 0;
+        direction = {x: -1, y: 0};
     }
 
     function right() {
-        xDirection = 1;
-        yDirection = 0;
+        direction = {x: 1, y: 0};
     }
 
     function getX(): number {
