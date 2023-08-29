@@ -74,9 +74,7 @@ export function Game(maxX: number = 3, maxY: number = 3, init: boolean = true) {
     }
 
     function getRat() {
-        let ratX = ratPosition.x;
-        let ratY = ratPosition.y;
-        return {ratX, ratY};
+        return ratPosition;
     }
 
     function getRandomInt(max: number): number {

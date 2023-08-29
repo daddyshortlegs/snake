@@ -65,7 +65,7 @@ function clearCanvas() {
 
 function drawRat(ctx: CanvasRenderingContext2D) {
     const rat = game.getRat();
-    drawDot(ctx, rat.ratX, rat.ratY, "rgb(132,77,14)");
+    drawDot(ctx, rat.x, rat.y, "rgb(132,77,14)");
 }
 
 function drawSnake(ctx: CanvasRenderingContext2D) {
