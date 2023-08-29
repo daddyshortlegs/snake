@@ -1,37 +1,13 @@
-import {Snake} from "./snake";
+import { Snake } from "./snake";
+import { Rat } from "./rat";
 import { Coordinate } from "./coordinate";
-
-export function Rat(maxX: number = 3, maxY: number = 3) {
-    let ratPosition: Coordinate = {x: 0, y: 0};
-
-    function placeRat(position: Coordinate) {
-        ratPosition = position;
-    }
-
-    function randomRat() {
-        placeRat({
-            x: getRandomInt(maxX),
-            y: getRandomInt(maxY)
-        });
-    }
-
-    function getRandomInt(max: number): number {
-        return Math.floor(Math.random() * max);
-    }
-
-    function getRatPosition(): Coordinate {
-        return ratPosition;
-    }
-
-    return { placeRat, randomRat, getRatPosition };
-}
 
 export function Game(maxX: number = 3, maxY: number = 3, init: boolean = true) {
     let snake = Snake(2, [], maxX, maxY);
     let rat = Rat(maxX, maxY);
 
     if (init === true) {
-        randomRat();
+        rat.placeRandomly();
     }
 
     snake.resetPosition();
@@ -41,7 +17,7 @@ export function Game(maxX: number = 3, maxY: number = 3, init: boolean = true) {
 
         if (eatenRat()) {
             grow();
-            randomRat();
+            rat.placeRandomly();
         }
     }
 
@@ -85,10 +61,6 @@ export function Game(maxX: number = 3, maxY: number = 3, init: boolean = true) {
 
     function getSnakeBody() {
         return snake.getElements();
-    }
-
-    function randomRat() {
-        rat.randomRat();
     }
 
     function placeRat(position: Coordinate) {
