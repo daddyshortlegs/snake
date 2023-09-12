@@ -3,7 +3,7 @@ import { Rat } from "./rat";
 import { Coordinate } from "./coordinate";
 
 export function Game(maxX: number = 3, maxY: number = 3, init: boolean = true) {
-    let snake = Snake(2, [], maxX, maxY);
+    let snake = Snake(2, maxX, maxY);
     let rat = Rat(maxX, maxY);
 
     if (init === true) {

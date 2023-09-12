@@ -1,12 +1,10 @@
 import { Coordinate } from "./coordinate";
 
-export function Snake(size: number, starting: any = [], maxX: number = 3, maxY: number = 3) {
-
-    let elements = starting;
+export function Snake(size: number, maxX: number = 3, maxY: number = 3) {
+    let elements: any[] = [];
     let collided: boolean = false;
     let snakePosition: Coordinate = {x: 0, y: 0};
     let direction: Coordinate = {x: 1, y: 0};
-
 
     function resetPosition() {
         updatePosition({x: 0, y: 0});

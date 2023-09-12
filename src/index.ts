@@ -1,6 +1,6 @@
 import {Game} from "./game";
 
-const Key = {
+const KEY = {
     Up: 38,
     Down: 40,
     Left: 37,
@@ -8,16 +8,23 @@ const Key = {
     Space: 32
 };
 
-let key: number;
 
-let game = Game(99, 59);
+const ARENA_WIDTH = 99;
+const ARENA_HEIGHT = 59;
+const REFRESH_INTERVAL = 100;
+const PIXEL_SIZE = 10;
+
+
+let game = Game(ARENA_WIDTH, ARENA_HEIGHT);
 
 let ratSound = new Audio("resources/rat.mp3");
 ratSound.loop = false;
 let snakeSound = new Audio("resources/snake.mp3");
 snakeSound.loop = false;
 // snakeSound.play();
-const intervalId = setInterval(draw, 100);
+const intervalId = setInterval(draw, REFRESH_INTERVAL);
+
+let key: number;
 
 document.onkeydown = function (event) {
     key = event.keyCode;
@@ -25,19 +32,19 @@ document.onkeydown = function (event) {
 
 function draw() {
     switch (key) {
-        case Key.Up:
+        case KEY.Up:
             game.up();
             break;
-        case Key.Down:
+        case KEY.Down:
             game.down();
             break;
-        case Key.Left:
+        case KEY.Left:
             game.left();
             break;
-        case Key.Right:
+        case KEY.Right:
             game.right();
             break;
-        case Key.Space:
+        case KEY.Space:
             game.grow();
             break;
     }
@@ -79,7 +86,7 @@ function drawSnake(ctx: CanvasRenderingContext2D) {
 
 function drawDot(ctx: CanvasRenderingContext2D, x: number, y: number, fillStyle = "green") {
     ctx.fillStyle = fillStyle;
-    ctx.fillRect(x * 10, y * 10, 10, 10);
+    ctx.fillRect(x * PIXEL_SIZE, y * PIXEL_SIZE, PIXEL_SIZE, PIXEL_SIZE);
 }
 
 function displayGameOver() {
