@@ -31,4 +31,4 @@ Then navigate to http://localhost:8080
 
 ## Deployment
 
-It deploys to Github pages 
+On a success deploy, you can play the game here: https://daddyshortlegs.github.io/snake/
