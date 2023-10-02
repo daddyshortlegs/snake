@@ -28,3 +28,7 @@ To start:
 `npm start`
 
 Then navigate to http://localhost:8080
+
+## Deployment
+
+It deploys to Github pages 
