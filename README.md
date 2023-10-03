@@ -28,3 +28,8 @@ To start:
 `npm start`
 
 Then navigate to http://localhost:8080
+
+## Deployment
+
+This only happens when code is pushed to main.
+On a success deploy, you can play the game here: https://daddyshortlegs.github.io/snake/
